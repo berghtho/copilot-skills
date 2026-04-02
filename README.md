@@ -1,0 +1,2 @@
+# copilot-skills
+Useful skills
