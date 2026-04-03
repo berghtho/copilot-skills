@@ -1,6 +1,5 @@
 """Tests for string_utils module."""
 
-import pytest
 from skills.string_utils import (
     camel_to_snake,
     slugify,
@@ -66,7 +65,7 @@ class TestSnakeToCamel:
         assert snake_to_camel("hello") == "hello"
 
     def test_already_camel(self):
-        assert snake_to_camel("hello") == "hello"
+        assert snake_to_camel("alreadyCamel") == "alreadyCamel"
 
 
 class TestStripHtml:

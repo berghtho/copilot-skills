@@ -2,7 +2,6 @@
 
 from datetime import date, timedelta
 
-import pytest
 from skills.date_utils import (
     days_between,
     end_of_week,

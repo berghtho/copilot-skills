@@ -48,6 +48,8 @@ pip install -r requirements.txt
 ```
 
 ```python
+from datetime import date
+
 from skills import slugify, friendly_date, ensure_dir
 
 print(slugify("Hello World!"))      # hello-world

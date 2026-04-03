@@ -49,6 +49,8 @@ def snake_to_camel(name: str) -> str:
         >>> snake_to_camel("my_variable_name")
         'myVariableName'
     """
+    if name == "":
+        return ""
     components = name.split("_")
     return components[0] + "".join(x.title() for x in components[1:])
 

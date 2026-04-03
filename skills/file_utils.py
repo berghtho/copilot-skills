@@ -1,7 +1,6 @@
 """File utility functions for daily use."""
 
 import json
-import os
 from pathlib import Path
 from typing import Iterator
 
@@ -9,7 +8,7 @@ from typing import Iterator
 def ensure_dir(path: str | Path) -> Path:
     """Create *path* (and any missing parents) if it does not exist.
 
-    Returns the resolved :class:`~pathlib.Path` object.
+    Returns the corresponding :class:`~pathlib.Path` object.
 
     Example:
         >>> ensure_dir("/tmp/my/new/dir")
@@ -49,4 +48,6 @@ def find_files(root: str | Path, pattern: str) -> Iterator[Path]:
     Example:
         >>> list(find_files(".", "*.py"))
     """
-    yield from Path(root).rglob(pattern)
+    for p in Path(root).rglob(pattern):
+        if p.is_file():
+            yield p

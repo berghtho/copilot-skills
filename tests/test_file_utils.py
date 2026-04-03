@@ -1,11 +1,6 @@
 """Tests for file_utils module."""
 
-import json
-import os
-import tempfile
 from pathlib import Path
-
-import pytest
 from skills.file_utils import ensure_dir, find_files, read_json, write_json
 
 
