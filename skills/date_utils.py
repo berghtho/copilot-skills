@@ -1,5 +1,6 @@
 """Date and time utility functions for daily use."""
 
+import calendar
 from datetime import date, timedelta
 
 
@@ -67,4 +68,4 @@ def friendly_date(d: date) -> str:
         return "Yesterday"
     if delta == 1:
         return "Tomorrow"
-    return d.strftime("%a %d %b %Y")
+    return f"{calendar.day_abbr[d.weekday()]} {d.day:02d} {calendar.month_abbr[d.month]} {d.year}"
