@@ -26,6 +26,8 @@ def truncate(text: str, max_length: int, suffix: str = "...") -> str:
     """
     if len(text) <= max_length:
         return text
+    if max_length <= len(suffix):
+        return suffix[:max_length]
     return text[: max_length - len(suffix)] + suffix
 
 
