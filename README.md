@@ -1,43 +1,28 @@
 # copilot-skills
 
-A collection of daily-use skills: reusable Python utilities and GitHub Copilot agent skills for git worktrees.
+A skill vault of GitHub Copilot agent skills plus a small Python helper library. Skills are reference material, not automation; keep them concise, current, and easy to reuse.
 
 ---
 
-## Copilot Skills
+## Repository layout
 
-Copilot skills live in their own directories and each contain a `SKILL.md` that describes the skill's trigger, rules, and step-by-step behaviour.
+- `skill/<name>/SKILL.md` — Copilot skills with triggers, rules, and step-by-step behaviour
+- `skills/` — Python helper library for daily utilities
+- `tests/` — pytest coverage for the helper library
+
+## Copilot skills
 
 | Skill | Directory | Description |
 |---|---|---|
-| **Worktree Lifecycle** | [`worktree-lifecycle/`](worktree-lifecycle/SKILL.md) | Spin up a new branch worktree, do work inside it, then confirm and clean it up |
-| **Worktree Cleanup** | [`worktree-cleanup/`](worktree-cleanup/SKILL.md) | Safely remove a finished worktree and optionally delete its local branch |
+| **Agentic Guidance Rater** | [`skill/agentic-guidance-rater/`](skill/agentic-guidance-rater/SKILL.md) | Review and score agent instructions and skills, recommending improvements |
+| **Worktree Lifecycle** | [`skill/worktree-lifecycle/`](skill/worktree-lifecycle/SKILL.md) | Spin up a new branch worktree, do work inside it, then confirm and clean it up |
+| **Worktree Cleanup** | [`skill/worktree-cleanup/`](skill/worktree-cleanup/SKILL.md) | Safely remove a finished worktree and optionally delete its local branch |
 
-### Worktree Lifecycle
-
-Trigger: *"spin up a new branch workspace"*, *"create a worktree for …"*
-
-Key steps:
-1. Collect branch name (and optional base branch, default `main`)
-2. Fetch & update base branch
-3. Create worktree + branch via `git worktree add`
-4. Optionally open the worktree in VS Code
-5. On completion, confirm then remove worktree + optionally delete branch
-
-### Worktree Cleanup
-
-Trigger: *"cleanup this worktree"*, *"finish and remove"*, *"done with this branch workspace"*
-
-Key steps:
-1. Validate worktree and repo root paths
-2. Show current branch and dirty-state
-3. Confirm before removing worktree (`git worktree remove`)
-4. Confirm before deleting local branch (`git branch -d/-D`)
-5. Prune stale worktree refs
+When adding a new skill, create `skill/<name>/SKILL.md` with frontmatter (`name`, `description`) and update the table above.
 
 ---
 
-## Python Utilities
+## Python utilities
 
 A small library of helper functions for common everyday tasks.
 
