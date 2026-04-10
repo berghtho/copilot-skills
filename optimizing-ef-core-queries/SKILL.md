@@ -138,7 +138,7 @@ var order = await GetOrderById(db, orderId);
 | `ToList()` before `Where()` | Loads entire table into memory | Filter first: `.Where().ToList()` |
 | `Count()` to check existence | Scans all rows | Use `.Any()` instead |
 | `.Select()` after `.Include()` | Include is ignored with projection | Remove Include, use Select only |
-| `string.Contains()` in Where | May not translate, falls to client eval | Use `EF.Functions.Like()` for SQL LIKE |
+| `string.Contains()` in Where | Usually translates on relational providers, but semantics/performance vary by provider, collation, and leading-wildcard searches | Use `EF.Functions.Like()` when you want SQL `LIKE` semantics; verify collation and index usage |
 | Calling `.ToList()` inside `Select()` | Causes nested queries | Use projection with `Select` all the way |
 
 ### Step 6: Use raw SQL or FromSql for complex queries
