@@ -75,12 +75,12 @@ foreach (var order in orders)
 **After (eager loading — 1 or 2 queries total):**
 ```csharp
 // Option 1: Include (JOIN)
-var orders = await db.Orders
+var ordersWithItems = await db.Orders
     .Include(o => o.Items)
     .ToListAsync();
 
 // Option 2: Split query (separate SQL, avoids cartesian explosion)
-var orders = await db.Orders
+var ordersWithItemsSplitQuery = await db.Orders
     .Include(o => o.Items)
     .AsSplitQuery()
     .ToListAsync();
