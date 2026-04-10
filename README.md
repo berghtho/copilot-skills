@@ -14,6 +14,7 @@ A skill vault of GitHub Copilot agent skills plus a small Python helper library.
 
 | Skill | Directory | Description |
 |---|---|---|
+| **Optimizing EF Core Queries** | [`optimizing-ef-core-queries/`](optimizing-ef-core-queries/SKILL.md) | Diagnose and fix EF Core query performance: N+1 patterns, tracking modes, compiled queries, and common pitfalls |
 | **Agentic Guidance Rater** | [`skill/agentic-guidance-rater/`](skill/agentic-guidance-rater/SKILL.md) | Review and score agent instructions and skills, recommending improvements |
 | **Worktree Lifecycle** | [`skill/worktree-lifecycle/`](skill/worktree-lifecycle/SKILL.md) | Spin up a new branch worktree, do work inside it, then confirm and clean it up |
 | **Worktree Cleanup** | [`skill/worktree-cleanup/`](skill/worktree-cleanup/SKILL.md) | Safely remove a finished worktree and optionally delete its local branch |
