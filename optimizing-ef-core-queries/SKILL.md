@@ -57,12 +57,19 @@ Or use the `Microsoft.EntityFrameworkCore` log category:
 
 **Before (N+1 — 1 query for orders + N queries for items):**
 ```csharp
+// Common N+1 pattern: issuing a separate query per entity inside a loop
 var orders = await db.Orders.ToListAsync();
 foreach (var order in orders)
 {
-    // Each access triggers a lazy-load query!
-    var items = order.Items.Count;
+    // Explicit per-order query — runs once per order!
+    var itemCount = await db.OrderItems
+        .CountAsync(i => i.OrderId == order.Id);
+    Console.WriteLine($"Order {order.Id} has {itemCount} items");
 }
+
+// If lazy loading is enabled (via proxies/ILazyLoader), simply accessing
+// a navigation property inside a loop causes the same N+1 problem:
+// var count = order.Items.Count; // triggers a lazy-load query per order
 ```
 
 **After (eager loading — 1 or 2 queries total):**
