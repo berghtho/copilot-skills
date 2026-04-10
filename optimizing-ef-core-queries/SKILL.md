@@ -5,6 +5,7 @@ description: Optimize Entity Framework Core queries by fixing N+1 problems, choo
 
 # Optimizing EF Core Queries
 
+**Trigger:** EF Core queries are slow, generating excessive SQL, showing N+1 patterns, or causing high database load/memory pressure.
 ## When to Use
 
 - EF Core queries are slow or generating too many SQL statements
