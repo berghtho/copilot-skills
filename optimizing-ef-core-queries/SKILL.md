@@ -164,7 +164,7 @@ var results = await db.Orders
 - [ ] SQL logging shows expected number of queries (no N+1)
 - [ ] Read-only queries use `AsNoTracking()`
 - [ ] Hot-path queries use compiled queries
-- [ ] No client-side evaluation warnings in logs
+- [ ] No query translation exceptions occur (for example, no `"could not be translated"` errors), and there is no unintended `AsEnumerable()`/materialization before filtering
 - [ ] Include/split strategy matches data shape
 
 ## Common Pitfalls
